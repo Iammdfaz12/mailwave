@@ -34,13 +34,17 @@ export const Home = () => {
   function sendEmail() {
     setSendStatus(true);
     axios
-      .post(`${import.meta.env.VITE_APP_BACKEND_URL}/sendemail`, {
-        senderName: senderName,
-        fromEmail: fromEmail,
-        toEmail: toEmailList,
-        subject: subject,
-        emailMessage: emailContent,
-      })
+      .post(
+        `${import.meta.env.VITE_APP_BACKEND_URL}/sendemail`,
+        {
+          senderName: senderName,
+          fromEmail: fromEmail,
+          toEmail: toEmailList,
+          subject: subject,
+          emailMessage: emailContent,
+        },
+        { withCredentials: true }
+      )
       .then((response) => {
         if (response.data === true) {
           alert("Email sent successfully...");
@@ -55,7 +59,9 @@ export const Home = () => {
     <>
       <div className="flex min-h-screen flex-col justify-center items-center w-full p-8 gap-10 md:flex-row">
         <div className="flex w-full flex-col gap-5 md:w-[75%] pt-6">
-          <h1 className=" text-3xl text-center md:text-left font-bold">Mail Wave</h1>
+          <h1 className=" text-3xl text-center md:text-left font-bold">
+            Mail Wave
+          </h1>
           <p className="mt-5 text-xl md:text-left text-justify text-[#FBFBFB]">
             Effortlessly streamline your communication with our Bulk Email
             Sender project. Designed to enhance productivity, this tool enables
