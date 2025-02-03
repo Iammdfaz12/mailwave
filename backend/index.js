@@ -9,7 +9,7 @@ require("dotenv").config();
 const app = express();
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "https://mailwave-xi.vercel.app",
+    origin: process.env.FRONTEND_URL || 'https://mailwave-frontend.vercel.app',
     methods: "GET, POST, PUT, DELETE",
     allowedHeaders: "Content-Type, Authorization",
     credentials: true,
