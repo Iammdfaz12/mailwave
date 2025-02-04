@@ -78,6 +78,7 @@ export const Home = () => {
 
           {/* Sender Name */}
           <input
+            required
             type="text"
             name="sender-name"
             id="sender-name"
@@ -91,6 +92,7 @@ export const Home = () => {
 
           {/* Sender Email */}
           <input
+            required
             type="email"
             name="from-email"
             id="from-email"
@@ -103,14 +105,22 @@ export const Home = () => {
           />
 
           {/* File Input */}
+          <div className="w-full">
+            <input
+              required
+              type="file"
+              accept=".xlsx, .csv"
+              name="email-file"
+              id="email-file"
+              className="block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-black hover:file:bg-blue-100"
+              onChange={inputFileHandle}
+            />
+            <p className="text-red-600 pt-1">(Only .xlsx and .csv files are allowed)</p>
+          </div>
+
+          {/* Subject */}
           <input
-            type="file"
-            name="email-file"
-            id="email-file"
-            className="block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-black hover:file:bg-blue-100"
-            onChange={inputFileHandle}
-          />
-          <input
+            required
             type="text"
             name="subject"
             id="subject"
@@ -122,6 +132,7 @@ export const Home = () => {
             }}
           />
           <textarea
+            required
             name="email-content"
             id="email-content"
             value={emailContent}
