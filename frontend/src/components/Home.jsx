@@ -25,7 +25,6 @@ export const Home = () => {
       const totalEmail = emailList.map((item, index) => {
         return item.A;
       });
-      console.log(totalEmail);
       setToEmailList(totalEmail);
     };
     reader.readAsBinaryString(file);
